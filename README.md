@@ -54,6 +54,9 @@ Frequency up to 72 MHz, 128 Kbytes of Flash memory, 16 Kbytes of SRAM, with more
 │   ├── PY32F002B               # PY32F002B examples
 │   │   ├── HAL                 # HAL library examples
 │   │   └── LL                  # LL(Low Layer) library examples
+│   ├── PY32F032                # PY32F032 examples
+│   │   ├── HAL                 # HAL library examples
+│   │   └── LL                  # LL(Low Layer) library examples
 │   ├── PY32F07x                # PY32F07x examples
 │   │   └── HAL                 # HAL library examples
 │   └── PY32F0xx                # PY32F002A,PY32F003,PY32F030 examples
