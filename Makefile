@@ -9,6 +9,7 @@ BUILD_DIR		= Build
 #   PY32F002Bx5
 #   PY32F003x4, PY32F003x6, PY32F003x8,
 #   PY32F030x6, PY32F030x8, 
+#   PY32F031x4, PY32F031x6, PY32F031x7, PY32F031x8
 #   PY32F032x8
 #   PY32F072xB
 #   MS32C001x4
@@ -89,26 +90,6 @@ endif
 AFILES	:= Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002b.s
 # PY32F002B <<<
 
-else ifneq (,$(findstring PY32F032,$(MCU_TYPE)))
-
-# PY32F032 >>>
-CFILES		+= Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f032.c
-
-ifeq ($(USE_LL_LIB),y)
-CDIRS		+= Libraries/PY32F032_LL_Driver/Src \
-		Libraries/PY32F032_LL_BSP/Src
-INCLUDES	+= Libraries/PY32F032_LL_Driver/Inc \
-		Libraries/PY32F032_LL_BSP/Inc
-LIB_FLAGS   += USE_FULL_LL_DRIVER
-else
-CDIRS		+= Libraries/PY32F032_HAL_Driver/Src \
-		Libraries/PY32F032_HAL_BSP/Src
-INCLUDES	+= Libraries/PY32F032_HAL_Driver/Inc \
-		Libraries/PY32F032_HAL_BSP/Inc
-endif
-AFILES	:= Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f032.s
-# PY32F032 <<<
-
 else ifneq (,$(findstring PY32F07,$(MCU_TYPE)))
 
 #  PY32F07x >>>
@@ -151,6 +132,55 @@ ifneq (,$(findstring PY32F030,$(LIB_FLAGS)))
 AFILES	:= Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f030.s
 endif
 # PY32F002A,003,030 <<<
+
+else ifneq (,$(findstring PY32F031,$(MCU_TYPE)))
+
+# PY32F031 >>>
+CFILES		+= Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f031.c
+
+ifeq ($(USE_LL_LIB),y)
+CDIRS		:= Examples/PY32F031/LL/GPIO/GPIO_Toggle \
+		Libraries/PY32F031_LL_Driver/Src \
+		Libraries/PY32F031_LL_BSP/Src
+INCLUDES	:= Libraries/CMSIS/Core/Include \
+		Libraries/CMSIS/Device/PY32F0xx/Include \
+		Examples/PY32F031/LL/GPIO/GPIO_Toggle \
+		Libraries/PY32F031_LL_Driver/Inc \
+		Libraries/PY32F031_LL_BSP/Inc
+LIB_FLAGS   += USE_FULL_LL_DRIVER
+else
+CDIRS		:= Examples/PY32F031/HAL/GPIO/GPIO_Toggle \
+		Libraries/PY32F031_HAL_Driver/Src \
+		Libraries/PY32F031_HAL_BSP/Src
+INCLUDES	:= Libraries/CMSIS/Core/Include \
+		Libraries/CMSIS/Device/PY32F0xx/Include \
+		Examples/PY32F031/HAL/GPIO/GPIO_Toggle \
+		Libraries/PY32F031_HAL_Driver/Inc \
+		Libraries/PY32F031_HAL_BSP/Inc
+LIB_FLAGS   += USE_HAL_DRIVER
+endif
+AFILES	:= Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f031.s
+# PY32F031 <<<
+
+else ifneq (,$(findstring PY32F032,$(MCU_TYPE)))
+
+# PY32F032 >>>
+CFILES		+= Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f032.c
+
+ifeq ($(USE_LL_LIB),y)
+CDIRS		+= Libraries/PY32F032_LL_Driver/Src \
+		Libraries/PY32F032_LL_BSP/Src
+INCLUDES	+= Libraries/PY32F032_LL_Driver/Inc \
+		Libraries/PY32F032_LL_BSP/Inc
+LIB_FLAGS   += USE_FULL_LL_DRIVER
+else
+CDIRS		+= Libraries/PY32F032_HAL_Driver/Src \
+		Libraries/PY32F032_HAL_BSP/Src
+INCLUDES	+= Libraries/PY32F032_HAL_Driver/Inc \
+		Libraries/PY32F032_HAL_BSP/Inc
+endif
+AFILES	:= Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f032.s
+# PY32F032 <<<
 
 else ifneq (,$(findstring MS32C001,$(MCU_TYPE)))
 

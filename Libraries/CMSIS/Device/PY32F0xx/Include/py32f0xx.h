@@ -45,7 +45,7 @@ extern "C" {
 #if !defined (PY32F002Ax5) && !defined (PY32F002Bx5) && \
     !defined (PY32F003x4) && !defined (PY32F003x6) && !defined (PY32F003x8) && \
     !defined (PY32F030x3) && !defined (PY32F030x4) && !defined (PY32F030x6) && !defined (PY32F030x7) && !defined (PY32F030x8) && !defined (PY32F030xx) && \
-    !defined (PY32F031x3) && !defined (PY32F031x4) && !defined (PY32F031x6) && !defined (PY32F031x7) && !defined (PY32F031x8) && \
+    !defined (PY32F031x4) && !defined (PY32F031x6) && !defined (PY32F031x7) && !defined (PY32F031x8) && \
     !defined (PY32F032x8) && \
     !defined (PY32F071x6) && !defined (PY32F071x8) && !defined (PY32F071x9) && !defined (PY32F071xB) && \
     !defined (PY32F072x6) && !defined (PY32F072x8) && !defined (PY32F072x9) && !defined (PY32F072xB)
@@ -59,7 +59,6 @@ extern "C" {
 /* #define PY32F030x6  */  /*!< PY32F030x6  Devices (PY32F030x6  microcontrollers where the Flash memory is 32  Kbytes) */
 /* #define PY32F030x7  */  /*!< PY32F030x7  Devices (PY32F030x7  microcontrollers where the Flash memory is 48  Kbytes) */
 /* #define PY32F030x8  */  /*!< PY32F030x8  Devices (PY32F030x8  microcontrollers where the Flash memory is 64  Kbytes) */
-/* #define PY32F031x3  */  /*!< PY32F031x3  Devices (PY32F031x3  microcontrollers where the Flash memory is 8   Kbytes) */
 /* #define PY32F031x4  */  /*!< PY32F031x4  Devices (PY32F031x4  microcontrollers where the Flash memory is 16  Kbytes) */
 /* #define PY32F031x6  */  /*!< PY32F031x6  Devices (PY32F031x6  microcontrollers where the Flash memory is 32  Kbytes) */
 /* #define PY32F031x7  */  /*!< PY32F031x7  Devices (PY32F031x7  microcontrollers where the Flash memory is 48  Kbytes) */
@@ -84,7 +83,7 @@ extern "C" {
 #define PY32F002BPRE
 #elif (defined(PY32F030x3) || defined(PY32F030x4) || defined(PY32F030x6) || defined(PY32F030x7) || defined(PY32F030x8))
 #define PY32F030PRE
-#elif (defined(PY32F031x3) || defined(PY32F031x4) || defined(PY32F031x6) || defined(PY32F031x7) || defined(PY32F031x8))
+#elif (defined(PY32F031x4) || defined(PY32F031x6) || defined(PY32F031x7) || defined(PY32F031x8))
 #define PY32F031PRE
 #elif defined(PY32F032x8)
 #define PY32F032PRE
@@ -131,8 +130,6 @@ extern "C" {
 #include "py32f030x7.h"
 #elif defined(PY32F030x8)
 #include "py32f030x8.h"
-#elif defined(PY32F031x3)
-#include "py32f031x3.h"
 #elif defined(PY32F031x4)
 #include "py32f031x4.h"
 #elif defined(PY32F031x6)

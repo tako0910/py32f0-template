@@ -27,6 +27,13 @@ Frequency up to 48 MHz, 16 to 64 Kbytes of Flash memory, 3 to 8 Kbytes of SRAM.
 * PY32F030
   * PY32F030x4(16KB Flash/2KB RAM), PY32F030x6(32KB Flash/4KB RAM), PY32F030x8(64KB Flash/8KB RAM)
 
+## PY32F031
+
+16 to 64 Kbytes of Flash memory, 2 to 8 Kbytes of SRAM.
+
+* PY32F031
+  * PY32F031x4(16KB Flash/2KB RAM), PY32F031x6(32KB Flash/4KB RAM), PY32F031x7(48KB Flash/6KB RAM), PY32F031x8(64KB Flash/8KB RAM)
+
 ## PY32F032
 
 Frequency up to 72 MHz, 64 Kbytes of Flash memory, 8 Kbytes of SRAM.
@@ -64,38 +71,48 @@ Frequency up to 24 MHz, 16 Kbytes of Flash memory, 2 Kbytes of SRAM.
 │   ├── PY32F002B               # PY32F002B examples
 │   │   ├── HAL                 # HAL library examples
 │   │   └── LL                  # LL(Low Layer) library examples
+│   ├── PY32F0xx                # PY32F002A,PY32F003,PY32F030 examples
+│   │   ├── FreeRTOS            # FreeRTOS examples
+│   │   ├── HAL                 # HAL library examples
+│   │   └── LL                  # LL(Low Layer) library examples
+│   ├── PY32F031                # PY32F031 examples
+│   │   ├── HAL                 # HAL library examples
+│   │   └── LL                  # LL(Low Layer) library examples
 │   ├── PY32F032                # PY32F032 examples
 │   │   ├── HAL                 # HAL library examples
 │   │   └── LL                  # LL(Low Layer) library examples
 │   ├── PY32F07x                # PY32F07x examples
 │   │   └── HAL                 # HAL library examples
-│   └── PY32F0xx                # PY32F002A,PY32F003,PY32F030 examples
-│       ├── FreeRTOS            # FreeRTOS examples
-│       ├── HAL                 # HAL library examples
-│       └── LL                  # LL(Low Layer) library examples
+│   └── MS32C001               # MS32C001 examples
+│       ├── HAL                # HAL library examples
+│       └── LL                 # LL(Low Layer) library examples
 ├── Libraries
 │   ├── CMSIS
 │   ├── EPaper                  # Waveshare e-paper library
 │   ├── FreeRTOS                # FreeRTOS library
 │   ├── LDScripts               # LD files
-│   ├── MS32C001_HAL_BSP        # MS32C001 HAL BSP
-│   ├── MS32C001_HAL_Driver     # MS32C001 HAL library
-│   ├── MS32C001_LL_BSP         # MS32C001 LL BSP
-│   ├── MS32C001_LL_Driver      # MS32C001 LL library
 │   ├── PY32F002B_HAL_BSP       # PY32F002B HAL BSP
 │   ├── PY32F002B_HAL_Driver    # PY32F002B HAL library
 │   ├── PY32F002B_LL_BSP        # PY32F002B LL(low layer) BSP
 │   ├── PY32F002B_LL_Driver     # PY32F002B LL library
+│   ├── PY32F0xx_HAL_BSP        # PY32F002A/003/030 HAL BSP
+│   ├── PY32F0xx_HAL_Driver     # PY32F002A/003/030 HAL library
+│   ├── PY32F0xx_LL_BSP         # PY32F002A/003/030 LL BSP
+│   ├── PY32F0xx_LL_Driver      # PY32F002A/003/030 LL library
+│   ├── PY32F031_HAL_BSP        # PY32F031 HAL BSP
+│   ├── PY32F031_HAL_Driver     # PY32F031 HAL library
+│   ├── PY32F031_LL_BSP         # PY32F031 LL BSP
+│   ├── PY32F031_LL_Driver      # PY32F031 LL library
 │   ├── PY32F032_HAL_BSP        # PY32F032 HAL BSP
 │   ├── PY32F032_HAL_Driver     # PY32F032 HAL library
 │   ├── PY32F032_LL_BSP         # PY32F032 LL BSP
 │   ├── PY32F032_LL_Driver      # PY32F032 LL library
 │   ├── PY32F07x_HAL_BSP        # PY32F040/071/072 HAL BSP
 │   ├── PY32F07x_HAL_Driver     # PY32F040/071/072 HAL library
-│   ├── PY32F0xx_HAL_BSP        # PY32F002A/003/030 HAL BSP
-│   ├── PY32F0xx_HAL_Driver     # PY32F002A/003/030 HAL library
-│   ├── PY32F0xx_LL_BSP         # PY32F002A/003/030 LL BSP
-│   └── PY32F0xx_LL_Driver      # PY32F002A/003/030 LL library
+│   ├── MS32C001_HAL_BSP        # MS32C001 HAL BSP
+│   ├── MS32C001_HAL_Driver     # MS32C001 HAL library
+│   ├── MS32C001_LL_BSP         # MS32C001 LL BSP
+│   └── MS32C001_LL_Driver      # MS32C001 LL library
 |
 ├── Makefile                    # Make config
 ├── Misc
@@ -202,13 +219,14 @@ PROJECT			?= app
 BUILD_DIR		= Build
 
 # MCU types: 
-#   MS32C001x4
 #   PY32F002Ax5
 #   PY32F002Bx5
-#   PY32F032x8
 #   PY32F003x6, PY32F003x8, 
 #   PY32F030x6, PY32F030x8, 
+#   PY32F031x4, PY32F031x6, PY32F031x7, PY32F031x8
+#   PY32F032x8
 #   PY32F072xB
+#   MS32C001x4
 MCU_TYPE		= PY32F072xB
 
 ##### Options #####

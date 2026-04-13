@@ -1,0 +1,30 @@
+#include "py32f031_bsp_led.h"
+
+#define BSP_LED_GPIO_PORT GPIOB
+#define BSP_LED_GPIO_PIN  LL_GPIO_PIN_2
+
+void BSP_LED_Init(void)
+{
+  LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOB);
+
+  LL_GPIO_SetPinMode(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN, LL_GPIO_MODE_OUTPUT);
+  LL_GPIO_SetPinOutputType(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN, LL_GPIO_OUTPUT_PUSHPULL);
+  LL_GPIO_SetPinPull(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN, LL_GPIO_PULL_UP);
+
+  BSP_LED_Off();
+}
+
+void BSP_LED_On(void)
+{
+  LL_GPIO_ResetOutputPin(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN);
+}
+
+void BSP_LED_Off(void)
+{
+  LL_GPIO_SetOutputPin(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN);
+}
+
+void BSP_LED_Toggle(void)
+{
+  LL_GPIO_TogglePin(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN);
+}
