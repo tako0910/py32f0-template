@@ -1,13 +1,13 @@
 # py32f0-template
 
-* Template project for Puya PY32F0 MCU
+* Template project for Puya MCU
 * Supports GNU Arm Embedded Toolchain
 * Supports J-Link and DAPLink/PyOCD programmers
 * Supports IDE: VSCode
 
-# Puya PY32F0 Family
+# Puya MCU Family
 
-PY32F0 are cost-effective Arm Cortex-M0+ microcontrollers featured with wide range operating voltage from 1.7V to 5.5V. Datesheets and Reference Manuals can be found at [WIKI](https://github.com/IOsetting/py32f0-template/wiki).
+PY32 and MS32 are cost-effective Arm Cortex-M0+ microcontrollers featured with wide range operating voltage. Datesheets and Reference Manuals can be found at [WIKI](https://github.com/IOsetting/py32f0-template/wiki).
 
 ## PY32F002B
 
@@ -15,13 +15,6 @@ Frequency up to 24 MHz, 24 Kbytes of Flash memory, 3 Kbytes of SRAM.
 
 * PY32F002B
   * PY32F002Bx(24KB Flash/3KB RAM)
-
-## PY32F032
-
-Frequency up to 72 MHz, 64 Kbytes of Flash memory, 8 Kbytes of SRAM.
-
-* PY32F032
-  * PY32F032x8(64KB Flash/8KB RAM)
 
 ## PY32F0xx
 
@@ -34,6 +27,13 @@ Frequency up to 48 MHz, 16 to 64 Kbytes of Flash memory, 3 to 8 Kbytes of SRAM.
 * PY32F030
   * PY32F030x4(16KB Flash/2KB RAM), PY32F030x6(32KB Flash/4KB RAM), PY32F030x8(64KB Flash/8KB RAM)
 
+## PY32F032
+
+Frequency up to 72 MHz, 64 Kbytes of Flash memory, 8 Kbytes of SRAM.
+
+* PY32F032
+  * PY32F032x8(64KB Flash/8KB RAM)
+
 ## PY32F07x
 
 Frequency up to 72 MHz, 128 Kbytes of Flash memory, 16 Kbytes of SRAM, with more peripherals(CAN, USB)
@@ -45,12 +45,22 @@ Frequency up to 72 MHz, 128 Kbytes of Flash memory, 16 Kbytes of SRAM, with more
 * PY32F072
   * PY32F072xB(128KB Flash/16KB RAM)
 
+## MS32C001
+
+Frequency up to 24 MHz, 16 Kbytes of Flash memory, 2 Kbytes of SRAM.
+
+* MS32C001
+  * MS32C001x4(16KB Flash/2KB RAM)
+
 # File Structure
 
 ```
 ├── Build                       # Build results
 ├── Docs                        # Datesheets and User Manuals
 ├── Examples
+│   ├── MS32C001               # MS32C001 examples
+│   │   ├── HAL                # HAL library examples
+│   │   └── LL                 # LL(Low Layer) library examples
 │   ├── PY32F002B               # PY32F002B examples
 │   │   ├── HAL                 # HAL library examples
 │   │   └── LL                  # LL(Low Layer) library examples
@@ -68,6 +78,10 @@ Frequency up to 72 MHz, 128 Kbytes of Flash memory, 16 Kbytes of SRAM, with more
 │   ├── EPaper                  # Waveshare e-paper library
 │   ├── FreeRTOS                # FreeRTOS library
 │   ├── LDScripts               # LD files
+│   ├── MS32C001_HAL_BSP        # MS32C001 HAL BSP
+│   ├── MS32C001_HAL_Driver     # MS32C001 HAL library
+│   ├── MS32C001_LL_BSP         # MS32C001 LL BSP
+│   ├── MS32C001_LL_Driver      # MS32C001 LL library
 │   ├── PY32F002B_HAL_BSP       # PY32F002B HAL BSP
 │   ├── PY32F002B_HAL_Driver    # PY32F002B HAL library
 │   ├── PY32F002B_LL_BSP        # PY32F002B LL(low layer) BSP
@@ -97,7 +111,7 @@ Frequency up to 72 MHz, 128 Kbytes of Flash memory, 16 Kbytes of SRAM, with more
 
 # Requirements
 
-* Puya PY32 microcontroller evaluation boards or custom boards
+* Puya microcontroller evaluation boards or custom boards
 * Programmer
   * J-Link: J-Link OB programmer
   * PyOCD: DAPLink or J-Link
@@ -188,6 +202,7 @@ PROJECT			?= app
 BUILD_DIR		= Build
 
 # MCU types: 
+#   MS32C001x4
 #   PY32F002Ax5
 #   PY32F002Bx5
 #   PY32F032x8
