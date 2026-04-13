@@ -7,7 +7,7 @@
 **  Author		: Puya_HC
 **
 **  Abstract    : Linker script for PY32F031x4 series
-**                64Kbytes FLASH and 8Kbytes RAM
+**                16Kbytes FLASH and 2Kbytes RAM
 **
 **                Set heap size, stack size and stack location according
 **                to application requirements.
@@ -185,5 +185,4 @@ SECTIONS
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 }
-
 

@@ -12,12 +12,12 @@ void BSP_LED_Init(void)
 
 void BSP_LED_On(void)
 {
-  LL_GPIO_SetOutputPin(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN);
+  LL_GPIO_ResetOutputPin(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN);
 }
 
 void BSP_LED_Off(void)
 {
-  LL_GPIO_ResetOutputPin(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN);
+  LL_GPIO_SetOutputPin(BSP_LED_GPIO_PORT, BSP_LED_GPIO_PIN);
 }
 
 void BSP_LED_Toggle(void)

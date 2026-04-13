@@ -32,6 +32,9 @@
 #include "main.h"
 #include "ms32c001_bsp_led.h"
 
+/* Private function prototypes -----------------------------------------------*/
+static void APP_SystemClockConfig(void);
+
 /**
   * @brief  Main program.
   * @retval int
@@ -41,12 +44,48 @@ int main(void)
   /* Reset of all peripherals, Initializes the Systick. */
   HAL_Init();
 
+  /* Keep SystemCoreClock and SysTick aligned with the 24 MHz HSI setup. */
+  APP_SystemClockConfig();
+
   BSP_LED_Init();
 
   while (1)
   {
     HAL_Delay(250);
     BSP_LED_Toggle();
+  }
+}
+
+/**
+  * @brief  System clock configuration function
+  * @param  None
+  * @retval None
+  */
+static void APP_SystemClockConfig(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_HSI |
+                                     RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_24MHz;
+  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS_DISABLE;
+  RCC_OscInitStruct.LSIState = RCC_LSI_OFF;
+  RCC_OscInitStruct.LSEState = RCC_LSE_OFF;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    APP_ErrorHandler();
+  }
+
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSISYS;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    APP_ErrorHandler();
   }
 }
 

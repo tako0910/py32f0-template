@@ -29,7 +29,7 @@ Frequency up to 48 MHz, 16 to 64 Kbytes of Flash memory, 3 to 8 Kbytes of SRAM.
 
 ## PY32F031
 
-16 to 64 Kbytes of Flash memory, 2 to 8 Kbytes of SRAM.
+Frequency up to 48 MHz, 16 to 64 Kbytes of Flash memory, 2 to 8 Kbytes of SRAM.
 
 * PY32F031
   * PY32F031x4(16KB Flash/2KB RAM), PY32F031x6(32KB Flash/4KB RAM), PY32F031x7(48KB Flash/6KB RAM), PY32F031x8(64KB Flash/8KB RAM)
@@ -65,9 +65,6 @@ Frequency up to 24 MHz, 16 Kbytes of Flash memory, 2 Kbytes of SRAM.
 ├── Build                       # Build results
 ├── Docs                        # Datesheets and User Manuals
 ├── Examples
-│   ├── MS32C001               # MS32C001 examples
-│   │   ├── HAL                # HAL library examples
-│   │   └── LL                 # LL(Low Layer) library examples
 │   ├── PY32F002B               # PY32F002B examples
 │   │   ├── HAL                 # HAL library examples
 │   │   └── LL                  # LL(Low Layer) library examples
