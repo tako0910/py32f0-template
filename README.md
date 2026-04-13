@@ -16,6 +16,13 @@ Frequency up to 24 MHz, 24 Kbytes of Flash memory, 3 Kbytes of SRAM.
 * PY32F002B
   * PY32F002Bx(24KB Flash/3KB RAM)
 
+## PY32F032
+
+Frequency up to 72 MHz, 64 Kbytes of Flash memory, 8 Kbytes of SRAM.
+
+* PY32F032
+  * PY32F032x8(64KB Flash/8KB RAM)
+
 ## PY32F0xx
 
 Frequency up to 48 MHz, 16 to 64 Kbytes of Flash memory, 3 to 8 Kbytes of SRAM.
@@ -62,6 +69,10 @@ Frequency up to 72 MHz, 128 Kbytes of Flash memory, 16 Kbytes of SRAM, with more
 │   ├── PY32F002B_HAL_Driver    # PY32F002B HAL library
 │   ├── PY32F002B_LL_BSP        # PY32F002B LL(low layer) BSP
 │   ├── PY32F002B_LL_Driver     # PY32F002B LL library
+│   ├── PY32F032_HAL_BSP        # PY32F032 HAL BSP
+│   ├── PY32F032_HAL_Driver     # PY32F032 HAL library
+│   ├── PY32F032_LL_BSP         # PY32F032 LL BSP
+│   ├── PY32F032_LL_Driver      # PY32F032 LL library
 │   ├── PY32F07x_HAL_BSP        # PY32F040/071/072 HAL BSP
 │   ├── PY32F07x_HAL_Driver     # PY32F040/071/072 HAL library
 │   ├── PY32F0xx_HAL_BSP        # PY32F002A/003/030 HAL BSP
@@ -83,7 +94,7 @@ Frequency up to 72 MHz, 128 Kbytes of Flash memory, 16 Kbytes of SRAM, with more
 
 # Requirements
 
-* PY32F0 EVB or boards of PY32F002/003/030 series
+* Puya PY32 microcontroller evaluation boards or custom boards
 * Programmer
   * J-Link: J-Link OB programmer
   * PyOCD: DAPLink or J-Link
@@ -176,6 +187,7 @@ BUILD_DIR		= Build
 # MCU types: 
 #   PY32F002Ax5
 #   PY32F002Bx5
+#   PY32F032x8
 #   PY32F003x6, PY32F003x8, 
 #   PY32F030x6, PY32F030x8, 
 #   PY32F072xB

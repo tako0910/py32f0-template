@@ -7,6 +7,7 @@ BUILD_DIR		= Build
 # MCU types: 
 #   PY32F002Ax5
 #   PY32F002Bx5
+#   PY32F032x8
 #   PY32F003x4, PY32F003x6, PY32F003x8,
 #   PY32F030x6, PY32F030x8, 
 #   PY32F072xB
@@ -66,7 +67,27 @@ PYOCD_DEVICE	?= $(shell echo $(MCU_TYPE) | tr '[:upper:]' '[:lower:]')
 LDSCRIPT		= Libraries/LDScripts/$(PYOCD_DEVICE).ld
 
 
-ifneq (,$(findstring PY32F002B,$(MCU_TYPE)))
+ifneq (,$(findstring PY32F032,$(MCU_TYPE)))
+
+# PY32F032 >>>
+CFILES		+= Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f032.c
+
+ifeq ($(USE_LL_LIB),y)
+CDIRS		+= Libraries/PY32F032_LL_Driver/Src \
+		Libraries/PY32F032_LL_BSP/Src
+INCLUDES	+= Libraries/PY32F032_LL_Driver/Inc \
+		Libraries/PY32F032_LL_BSP/Inc
+LIB_FLAGS   += USE_FULL_LL_DRIVER
+else
+CDIRS		+= Libraries/PY32F032_HAL_Driver/Src \
+		Libraries/PY32F032_HAL_BSP/Src
+INCLUDES	+= Libraries/PY32F032_HAL_Driver/Inc \
+		Libraries/PY32F032_HAL_BSP/Inc
+endif
+AFILES	:= Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f032.s
+# PY32F032 <<<
+
+else ifneq (,$(findstring PY32F002B,$(MCU_TYPE)))
 
 # PY32F002B >>>
 CFILES		+= Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f002b.c
